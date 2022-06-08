@@ -4,16 +4,51 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+<script>
+            AFRAME.registerComponent('videohandler', {
+                init: function () {
+                    var marker = this.el;
+                    this.vid = document.querySelector("#vid");
+
+                    marker.addEventListener('markerFound', function () {
+                        this.toggle = true;
+                        this.vid.play();
+                    }.bind(this));
+
+                    marker.addEventListener('markerLost', function () {
+                        this.toggle = false;
+                        this.vid.pause();
+                    }.bind(this));
+                },
+            });
+        </script>
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+	 <a-assets>
+                <video
+                    id="vid"
+                    type="video/mp4"
+                    src="assets/asset.mp4"
+                    preload="auto"
+                    response-type="arraybuffer"
+                    loop="true"
+                    crossorigin
+                    webkit-playsinline
+                    autoplay
+                    muted
+                    playsinline
+                ></video>
+            </a-assets>
+
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+	<a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.25" width="0.25" rotation="0 0 0"></a-plane>
+	<a-video scale="1 1.43 1" position="0 0.1 0" rotation="-90 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
       </a-entity>
     </a-scene>
   </body>
 <footer>
-	Version 3.3
+	Version 3.4
 </footer>
 </html>
