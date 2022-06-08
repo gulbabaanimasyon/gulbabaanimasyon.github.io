@@ -10,11 +10,13 @@
 <script>
 const exampleTarget = document.querySelector('#example-target');
 exampleTarget.addEventListener("targetFound", event => {
+	console.log("target found");
         document.querySelector("#vid").play();
 });
 
 // detect target lost
 exampleTarget.addEventListener("targetLost", event => {
+	console.log("target found");
 	document.querySelector("#vid").pause();
 });
 </script>
@@ -45,8 +47,10 @@ exampleTarget.addEventListener("targetLost", event => {
 	<a-video height="1.43" width="1" position="0 0 0" rotation="0 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
       </a-entity>
     </a-scene>
+<center><h1> Version 3.7</h1></center>
+
   </body>
 <footer>
-	Version 3.6
+	Version 3.7
 </footer>
 </html>
