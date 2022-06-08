@@ -8,16 +8,15 @@
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 
 <script>
+// detect target found
 const exampleTarget = document.querySelector('#example-target');
 exampleTarget.addEventListener("targetFound", event => {
-	console.log("target found");
-        document.querySelector("#vid").play();
+  console.log("target found");
 });
 
 // detect target lost
 exampleTarget.addEventListener("targetLost", event => {
-	console.log("target found");
-	document.querySelector("#vid").pause();
+  console.log("target lost");
 });
 </script>
 
@@ -47,10 +46,11 @@ exampleTarget.addEventListener("targetLost", event => {
 	<a-video height="1.43" width="1" position="0 0 0" rotation="0 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
       </a-entity>
     </a-scene>
-<center><h1> Version 3.7</h1></center>
+
+<div style="z-index: -1"><center><h1 style="color:red;"> Version 3.8</h1></center></div>
 
   </body>
 <footer>
-	Version 3.7
+	Version 3.8
 </footer>
 </html>
