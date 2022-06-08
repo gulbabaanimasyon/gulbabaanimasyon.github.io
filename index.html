@@ -6,24 +6,19 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
     <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+
 <script>
-            AFRAME.registerComponent('videohandler', {
-                init: function () {
-                    var marker = this.el;
-                    this.vid = document.querySelector("#vid");
+const exampleTarget = document.querySelector('#example-target');
+exampleTarget.addEventListener("targetFound", event => {
+        document.querySelector("#vid").play();
+});
 
-                    marker.addEventListener('markerFound', function () {
-                        this.toggle = true;
-                        this.vid.play();
-                    }.bind(this));
+// detect target lost
+exampleTarget.addEventListener("targetLost", event => {
+	document.querySelector("#vid").pause();
+});
+</script>
 
-                    marker.addEventListener('markerLost', function () {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }.bind(this));
-                },
-            });
-        </script>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no," />
   </head>
@@ -46,12 +41,12 @@
             </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex: 0">
+      <a-entity id="example-target" mindar-image-target="targetIndex: 0" >
 	<a-video height="1.43" width="1" position="0 0 0" rotation="0 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
       </a-entity>
     </a-scene>
   </body>
 <footer>
-	Version 3.5
+	Version 3.6
 </footer>
 </html>
