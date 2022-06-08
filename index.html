@@ -4,6 +4,8 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
 <script>
             AFRAME.registerComponent('videohandler', {
                 init: function () {
@@ -22,9 +24,11 @@
                 },
             });
         </script>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no," />
   </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
 	 <a-assets>
                 <video
                     id="vid"
@@ -44,11 +48,11 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity mindar-image-target="targetIndex: 0">
 	<a-plane color="blue" opaciy="0.5" position="0 0 0" height="0.25" width="0.25" rotation="0 0 0"></a-plane>
-	<a-video scale="1 1.43 1" position="0 0.1 0" rotation="-90 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
+	<a-video height="1" width="1" position="0 0 0" rotation="0 0 0" autoplay loop="true" type="assets/asset.mp4" preload="auto" src="#vid" class="clickable" gesture-handler>
       </a-entity>
     </a-scene>
   </body>
 <footer>
-	Version 3.4
+	Version 3.5
 </footer>
 </html>
