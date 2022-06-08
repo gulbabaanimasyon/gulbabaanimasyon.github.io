@@ -19,7 +19,7 @@ exampleTarget.addEventListener("targetFound", event => {
 	var vid = document.querySelector("#vid");
 	vid.currentTime = 0;   
 	vid .play();
-	var audioPlayer = document.getElementById("#audio");
+	var audioPlayer = document.getElementById("vidAudio");
 	audioPlayer .currentTime = 0;   
 	audioPlayer.play();
 });
@@ -28,7 +28,7 @@ exampleTarget.addEventListener("targetFound", event => {
 exampleTarget.addEventListener("targetLost", event => {
 	console.log("target lost");
 	document.querySelector("#vid").pause();
-	document.getElementById("#audio").pause();
+	document.getElementById("vidAudio").pause();
 });
 
 });
@@ -52,9 +52,9 @@ exampleTarget.addEventListener("targetLost", event => {
 </head>
 
   <body style="margin: 0; overflow: hidden;">
-<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 5.4</h1></center></div>
+<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 5.5</h1></center></div>
 
-<audio id="audio" src="assets/AssetAudio.mp3" preload="auto"></audio>
+<audio id="vidAudio" src="assets/AssetAudio.mp3" preload="auto"></audio>
 
     <a-scene mindar-image="filterMinCF:0.0001; filterBeta: 0.003; imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
 	 <a-assets>
