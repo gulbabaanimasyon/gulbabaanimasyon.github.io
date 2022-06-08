@@ -16,7 +16,9 @@
 var exampleTarget = document.querySelector('#example-target');
 exampleTarget.addEventListener("targetFound", event => {
   console.log("target found");
-document.querySelector("#vid").play();
+var vid = document.querySelector("#vid");
+vid.currentTime = 0;   
+vid .play();
 });
 
 // detect target lost
@@ -46,9 +48,9 @@ document.querySelector("#vid").pause();
 </head>
 
   <body style="margin: 0; overflow: hidden;">
-<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 5.1</h1></center></div>
+<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 5.2</h1></center></div>
 
-    <a-scene mindar-image="filterMinCF:0.0001; filterBeta: 0.001; imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
+    <a-scene mindar-image="filterMinCF:0.0001; filterBeta: 0.003; imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
 	 <a-assets>
                 <video
                     id="vid"
