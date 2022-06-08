@@ -35,9 +35,9 @@ document.querySelector("#vid").pause();
   </head>
   <body style="margin: 0; overflow: hidden;">
 
-	<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 4.1</h1></center></div>
+	<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 4.2</h1></center></div>
 
-    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
+    <a-scene mindar-image="imageTargetSrc: ./targets.mind;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
 	 <a-assets>
                 <video
                     id="vid"
