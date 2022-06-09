@@ -54,11 +54,11 @@ exampleTarget.addEventListener("targetLost", event => {
 <body style="margin: 0; overflow: hidden;">
 
 <!-- Version Test Text -->
-<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 6.0</h1></center></div>
+<div style="position: absolute; z-index: 1000"><center><h1 style="color:red;"> Version 6.1</h1></center></div>
 
 <audio id="vidAudio" src="assets/AssetAudio.mp3" preload="auto"></audio>
 
-    <a-scene mindar-image="filterMinCF:0.0001; filterBeta: 0.003; missTolerance: 2; imageTargetSrc: ./targets.mind; uiScanning=no;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
+    <a-scene mindar-image="filterMinCF:0.0001; filterBeta: 0.003; missTolerance: 2; imageTargetSrc: ./targets.mind; uiError=no; uiLoading=no; uiScanning=no;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded gesture-detector>
 	 <a-assets>
                 <video
                     id="vid"
